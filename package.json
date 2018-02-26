@@ -1,6 +1,6 @@
 {
   "name": "hotside",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hot sideloading of javascript code in a browser without serving any files",
   "main": "dist/web.js",
   "bin": {
