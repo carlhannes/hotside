@@ -8,8 +8,9 @@ import commonjs from 'rollup-plugin-commonjs';
 const hasName = process.argv.indexOf('--name') + 1 || process.argv.indexOf('-n') + 1;
 const name = hasName ? process.argv[hasName] : 'no-name';
 const fileName = name.replace(/([A-Z])/g, (m, s) => `-${s.toLowerCase()}`);
-const format = 'umd';
 
+const hasFormat = process.argv.indexOf('--output.format') + 1 || process.argv.indexOf('-f') + 1;
+const format = hasFormat ? process.argv[hasFormat] : 'umd';
 
 const config = {
   input: `src/${fileName}.js`,
@@ -17,6 +18,7 @@ const config = {
     name,
     file: `dist/${fileName}.js`,
     format,
+    banner: format === 'cjs' ? '#!/usr/bin/env node' : '',
   },
   plugins: [
     resolve({ jsnext: true, preferBuiltins: false }),

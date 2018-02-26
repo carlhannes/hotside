@@ -10,8 +10,8 @@
     "/dist"
   ],
   "scripts": {
-    "build": "rollup -c -n cli --output.format cjs & rollup -c -n web",
-    "build:watch": "rollup -w -c -n cli --output.format cjs & rollup -w -c -n web"
+    "build": "rollup -c -n cli -f cjs & rollup -c -n web",
+    "build:watch": "rollup -w -c -n cli -f cjs & rollup -w -c -n web"
   },
   "repository": {
     "type": "git",
